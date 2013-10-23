@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	var questions = [{question: "What is the capital of the US", choices: ["Washington DC", "NYC", "Silicon Valley"], correct:0, image: "usa.jpg"}];
+	var questions = [{question: "What is the capital of the US", choices: ["Washington DC", "NYC", "Silicon Valley"], correct:0, image: "USA.jpg"}];
 	var currentQuestion = 0;
 	var numRight = 0;
 	var btnContinue = false;
