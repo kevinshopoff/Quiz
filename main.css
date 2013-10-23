@@ -1,0 +1,50 @@
+ body {
+	background-color:#F1DEB6;
+	text-align:center;
+}	
+
+#flag {
+	height:100px;
+	background-size:100px auto;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+#formContainer {
+	display:inline;
+	position:relative;
+}
+
+#myChoices {
+	text-align:left;
+	width:150px;
+	margin:auto;
+}
+
+#theButtons {
+	margin:auto;
+}
+
+#actualButton {
+	visibility:hidden;
+	/*margin-left:50px;*/
+}
+
+#btn {
+	border:1px solid #3FAE13;
+	border-radius:5px;
+	background-color:#48C716;
+	width:70px;
+	height:19px;
+	display:inline;
+	color:white;
+	padding:3px;
+	font-size:smaller;
+	margin-left:-20px;
+}
+
+#btn:hover {
+	background-color:#13AE35;
+	cursor:pointer;
+}
+
