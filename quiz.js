@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	var questions = [{question: "What is the capital of the US", choices: ["Washington DC", "NYC", "Silicon Valley"], correct:0, image: "USA.jpg"}];
+	var questions = [{question: "What is the capital of the US", choices: ["Washington DC", "NYC", "Silicon Valley"], correct:0, image: "usa.jpg"}];
 	var currentQuestion = 0;
 	var numRight = 0;
 	var btnContinue = false;
@@ -28,13 +28,13 @@ $(document).ready(function(){
 			$("#myStats").text("You answered " + numRight + " out of " + totalQuestions + " " + rightWord(totalQuestions) + " correctly.");
 		} else {
 			$('#flag').css('background-image', 'url("images/' + questions[currentQuestion].image + '")');
-			/*$("body").css("background-image","url:("+questions[currentQuestion].image+")");*/
 			console.log("the image file is: " + questions[currentQuestion].image);
 			$("#theAnswers").empty();
 			$("#theQuestion").text(questions[currentQuestion].question + "?");
 			for (i=0; i<questions[currentQuestion].choices.length; i++) {
-				$('#theAnswers').append('<input type=\'radio\' name=\'choice\' value=' + i + ' class=\'theAnswers\'>' + questions[currentQuestion].choices[i] + '<br>');
+				$('#theAnswers').append('<input type=\'radio\' name=\'choice\' value=' + i + ' class=\'theAnswers\' id=' + i + '>' + questions[currentQuestion].choices[i] + '<br>');
 			}	
+			$('#0').focus();
 		$('#xofy').text('Question ' + (currentQuestion + 1) + ' of ' + totalQuestions + '.');
 		}
 		
@@ -58,6 +58,7 @@ $(document).ready(function(){
 			}
 		}
 		currentQuestion++;
+		$('#actualButton').focus();
 		$("#btn").text("Continue");
 		btnContinue = true;
 	};
@@ -77,27 +78,20 @@ $(document).ready(function(){
 		return false;
     });
 	
-	$("#actualButton").submit(function(){
+	$("#myChoices").submit(function(){
 		console.log("Enter was pressed");
-		/*var currentAnswer = $('input[name="choice"]:checked').val();
-		console.log(currentAnswer + " was your answer");
-		/*checkGuess(currentGuess);*/
-		/*return false;*/
-		
-		var radios = document.getElementsByName('choice');
-
-		for (var i = 0, length = radios.length; i < length; i++) {
-			if (radios[i].checked) {
-			// do whatever you want with the checked radio
-			alert(radios[i].value);
-
-        // only one radio can be logically checked, don't check the rest
-			break;
-			}
+		if (btnContinue) {
+			$("#btn").text("Answer");
+			btnContinue = false;	
+			nextQuestion();
+		} else {
+			var currentAnswer = $('input[name="choice"]:checked').val();
+			console.log(currentAnswer + " was your answer");
+			checkAnswer(currentAnswer);
 		}
+		
 		return false;
     });
-	
 	
 	nextQuestion();
 	
