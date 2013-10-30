@@ -25,13 +25,6 @@
 	margin:auto;
 }
 
-#actualButton {
-	/*visibility:hidden;
-	margin-left:50px;*/
-	width:30px;
-	margin-left:55px;;
-}
-
 #btn {
 	border:1px solid #3FAE13;
 	border-radius:5px;
@@ -42,7 +35,7 @@
 	color:white;
 	padding:3px;
 	font-size:smaller;
-	margin-left:-40px;
+	margin-left:50px;
 }
 
 #btn:hover {
